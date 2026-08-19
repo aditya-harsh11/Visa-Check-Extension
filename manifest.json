@@ -1,0 +1,19 @@
+{
+  "manifest_version": 3,
+  "name": "Visa Check — Job Sponsorship Scanner",
+  "version": "1.0.0",
+  "description": "Scans job postings for citizenship/visa sponsorship requirements and tells you if you can apply as an international student.",
+  "permissions": ["activeTab"],
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "css": ["styles.css"],
+      "run_at": "document_idle"
+    }
+  ],
+  "icons": {
+    "48": "icon48.png",
+    "128": "icon128.png"
+  }
+}

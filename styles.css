@@ -1,0 +1,173 @@
+/* ── Visa Check floating widget ─────────────────────────────────── */
+
+#visa-check-ext {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 2147483647;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 14px;
+  line-height: 1.45;
+  color: #E8E8ED;
+  -webkit-font-smoothing: antialiased;
+}
+
+.vc-badge {
+  background: #1C1C22;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  box-shadow:
+    0 8px 30px rgba(0, 0, 0, 0.45),
+    0 0 0 1px rgba(255, 255, 255, 0.04);
+  width: 320px;
+  overflow: hidden;
+  transition: box-shadow 0.2s;
+}
+
+/* ── Top bar (always visible) ──────────────────────────────────── */
+
+.vc-badge-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 16px;
+  cursor: pointer;
+  user-select: none;
+  border-left: 3px solid var(--vc-accent);
+  transition: background 0.15s;
+}
+
+.vc-badge-bar:hover {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.vc-emoji {
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+.vc-title {
+  flex: 1;
+  font-weight: 600;
+  font-size: 13.5px;
+  letter-spacing: 0.01em;
+}
+
+.vc-chevron {
+  font-size: 12px;
+  opacity: 0.4;
+  transition: transform 0.25s ease;
+}
+
+/* ── Expandable panel ──────────────────────────────────────────── */
+
+.vc-panel {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, padding 0.3s ease;
+  padding: 0 16px;
+}
+
+.vc-panel.vc-open {
+  max-height: 500px;
+  padding: 0 16px 14px;
+}
+
+.vc-subtitle {
+  margin: 0 0 12px;
+  font-size: 12.5px;
+  color: #9B9BA7;
+  line-height: 1.5;
+}
+
+/* ── Individual keyword hits ───────────────────────────────────── */
+
+.vc-hits {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 12px;
+  max-height: 220px;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+.vc-hits::-webkit-scrollbar {
+  width: 4px;
+}
+
+.vc-hits::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+}
+
+.vc-hit {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  padding: 8px 10px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.vc-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-top: 5px;
+}
+
+.vc-hit--red .vc-dot {
+  background: #E5484D;
+  box-shadow: 0 0 6px rgba(229, 72, 77, 0.4);
+}
+
+.vc-hit--green .vc-dot {
+  background: #30A46C;
+  box-shadow: 0 0 6px rgba(48, 164, 108, 0.4);
+}
+
+.vc-hit--yellow .vc-dot {
+  background: #F5A623;
+  box-shadow: 0 0 6px rgba(245, 166, 35, 0.3);
+}
+
+.vc-hit strong {
+  display: block;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: #D4D4DC;
+}
+
+.vc-snippet {
+  display: block;
+  font-size: 11.5px;
+  color: #7A7A88;
+  margin-top: 2px;
+  font-style: italic;
+  word-break: break-word;
+}
+
+/* ── Re-scan button ────────────────────────────────────────────── */
+
+.vc-rescan {
+  all: unset;
+  display: block;
+  width: 100%;
+  text-align: center;
+  padding: 8px 0;
+  font-size: 12px;
+  font-weight: 500;
+  color: #9B9BA7;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+  box-sizing: border-box;
+}
+
+.vc-rescan:hover {
+  background: rgba(255, 255, 255, 0.06);
+  color: #D4D4DC;
+}
